@@ -68,8 +68,8 @@ public class GameOfLifeTest
 
                 // if the cell at the current row and col should be alive, assert that the actor is not null
                 if(     (row == 0 && col == 2) ||
-                        (row == 2 && col == 0) ||
-                        (row == 2 && col == 1))
+                        (row == 2 && col == 2) ||
+                        (row == 2 && col == 0))
                 {
                     assertNotNull("expected alive cell at (" + row + ", " + col + ")", cell);
                 }
