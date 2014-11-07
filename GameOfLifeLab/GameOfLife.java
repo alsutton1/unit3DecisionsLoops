@@ -18,13 +18,21 @@ public class GameOfLife
     private ActorWorld world;
     
     // the game board will have 5 rows and 5 columns
-    private final int ROWS = 5;
-    private final int COLS = 5;
+    private final int ROWS = 25;
+    private final int COLS = 25;
     
     // constants for the location of the three cells initially alive
-    private final int X1 = 0, Y1 = 2;
-    private final int X2 = 2, Y2 = 0;
-    private final int X3 = 2, Y3 = 1;
+    private final int X1 = 10, Y1 = 13;
+    private final int X2 = 10, Y2 = 14;
+    private final int X3 = 11, Y3 = 12;
+    private final int X4 = 11, Y4 = 15;
+    private final int X5 = 12, Y5 = 13;
+    private final int X6 = 12, Y6 = 14;
+    private final int X7 = 13, Y7 = 12;
+    private final int X8 = 13, Y8 = 15;
+    private final int X9 = 14, Y9 = 13;
+    private final int X10 = 14, Y10 = 14;
+    
 
     /**
      * Default constructor for objects of class GameOfLife
@@ -73,6 +81,34 @@ public class GameOfLife
         Rock rock3 = new Rock();
         Location loc3 = new Location(X3, Y3);
         grid.put(loc3, rock3);
+        
+        Rock rock4 = new Rock();
+        Location loc4 = new Location(X4, Y4);
+        grid.put(loc4, rock4);
+        
+        Rock rock5 = new Rock();
+        Location loc5 = new Location(X5, Y5);
+        grid.put(loc5, rock5);
+        
+        Rock rock6 = new Rock();
+        Location loc6 = new Location(X6, Y6);
+        grid.put(loc6, rock6);
+        
+        Rock rock7 = new Rock();
+        Location loc7 = new Location(X7, Y7);
+        grid.put(loc7, rock7);
+        
+        Rock rock8 = new Rock();
+        Location loc8 = new Location(X8, Y8);
+        grid.put(loc8, rock8);
+        
+        Rock rock9 = new Rock();
+        Location loc9 = new Location(X9, Y9);
+        grid.put(loc9, rock9);
+        
+        Rock rock10 = new Rock();
+        Location loc10 = new Location(X10, Y10);
+        grid.put(loc10, rock10);
     }
 
     /**
@@ -91,6 +127,7 @@ public class GameOfLife
         
         // create the grid, of the specified size, that contains Actors
         Grid<Actor> grid = world.getGrid();
+        
         
         // insert magic here...
         
