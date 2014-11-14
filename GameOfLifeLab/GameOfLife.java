@@ -121,17 +121,26 @@ public class GameOfLife
         
         
         // insert magic here...
-        ArrayList newGrid = new ArrayList();
         for (int numRow = 0; numRow < 15; numRow++)
         {
             for (int numCol = 0; numCol < 15; numCol++)
             {
-                ArrayList list = new ArrayList();
-                Location gridLoc = new Location(numRow, numCol);
-                list.addAll(grid.getOccupiedAdjacentLocations(gridLoc));
-                if ( == 2)
+                Location gridloc = new Location(numRow, numCol);
+                ArrayList list = grid.getOccupiedAdjacentLocations(gridloc);
+                Rock newRock = new Rock();
+                
+                if (getActor(numRow, numCol) != null)
                 {
+                    if (list.size() >= 2 && list.size() < 4)
+                    {
+                        gridloc.put(cell, newRock);
+                    }
+                    else
+                    {
+                        
+                    }
                 }
+                        
             }
         }
     }
@@ -177,8 +186,15 @@ public class GameOfLife
      *
      */
     public static void main(String[] args)
+    throws InterruptedExeption
     {
         GameOfLife game = new GameOfLife();
+        
+        for (int i = 0; i < 10; i++)
+        {
+            Thread.sleep(20);
+            game.creatNextGeneration();
+        }
     }
 
 }
