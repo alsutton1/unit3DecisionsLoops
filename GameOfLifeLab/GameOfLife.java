@@ -121,6 +121,9 @@ public class GameOfLife
         
         
         // insert magic here...
+        int COLS = 15;
+        int ROWS = 15;
+        BoundedGrid<Actor> newgrid = new BoundedGrid<Actor>(ROWS, COLS);
         for (int numRow = 0; numRow < 15; numRow++)
         {
             for (int numCol = 0; numCol < 15; numCol++)
@@ -133,17 +136,20 @@ public class GameOfLife
                 {
                     if (list.size() >= 2 && list.size() < 4)
                     {
-                        gridloc.put(cell, newRock);
-                    }
-                    else
+                        newgrid.remove(gridloc);
+                    }   
+                }
+                else 
+                {
+                    if (list.size() == 3)
                     {
-                        
+                        newgrid.put(gridloc, newRock);
                     }
                 }
-                        
-            }
+            }             
         }
     }
+
     
     /**
      * Returns the actor at the specified row and column. Intended to be used for unit testing.
@@ -186,14 +192,14 @@ public class GameOfLife
      *
      */
     public static void main(String[] args)
-    throws InterruptedExeption
+    throws InterruptedException
     {
         GameOfLife game = new GameOfLife();
         
         for (int i = 0; i < 10; i++)
         {
             Thread.sleep(20);
-            game.creatNextGeneration();
+            game.createNextGeneration();
         }
     }
 
