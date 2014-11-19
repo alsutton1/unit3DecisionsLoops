@@ -124,19 +124,18 @@ public class GameOfLife
         int COLS = 15;
         int ROWS = 15;
         BoundedGrid<Actor> newgrid = new BoundedGrid<Actor>(ROWS, COLS);
-        for (int numRow = 0; numRow < 15; numRow++)
+        for (int numRow = 0; numRow < ROWS; numRow++)
         {
-            for (int numCol = 0; numCol < 15; numCol++)
+            for (int numCol = 0; numCol < COLS; numCol++)
             {
                 Location gridloc = new Location(numRow, numCol);
                 ArrayList list = grid.getOccupiedAdjacentLocations(gridloc);
                 Rock newRock = new Rock();
-                
                 if (getActor(numRow, numCol) != null)
                 {
-                    if (list.size() >= 2 && list.size() < 4)
+                    if (list.size() >= 2 && list.size() <= 3)
                     {
-                        newgrid.remove(gridloc);
+                        newgrid.put(gridloc, newRock);
                     }   
                 }
                 else 
@@ -148,8 +147,8 @@ public class GameOfLife
                 }
             }             
         }
+        world.setGrid(newgrid);
     }
-
     
     /**
      * Returns the actor at the specified row and column. Intended to be used for unit testing.
@@ -196,11 +195,10 @@ public class GameOfLife
     {
         GameOfLife game = new GameOfLife();
         
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i <= 16; i++)
         {
             Thread.sleep(20);
             game.createNextGeneration();
         }
     }
-
 }
