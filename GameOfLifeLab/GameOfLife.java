@@ -197,7 +197,7 @@ public class GameOfLife
         
         for (int i = 0; i <= 16; i++)
         {
-            Thread.sleep(20);
+            Thread.sleep(100);
             game.createNextGeneration();
         }
     }
