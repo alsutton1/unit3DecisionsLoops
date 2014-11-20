@@ -195,7 +195,7 @@ public class GameOfLife
     {
         GameOfLife game = new GameOfLife();
         
-        for (int i = 0; i <= 16; i++)
+        for (int i = 0; i < 17; i++)
         {
             Thread.sleep(100);
             game.createNextGeneration();
